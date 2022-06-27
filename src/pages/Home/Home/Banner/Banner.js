@@ -3,10 +3,22 @@ import { Carousel } from 'react-bootstrap';
 import slider1 from "../../../../images/background-02-1920x800.jpg"
 import slider2 from "../../../../images/background-03-1920x800.jpg"
 import slider3 from "../../../../images/background-04-1920x800.jpg"
+import slider4 from "../../../../images/slider.jpg"
 const Banner = () => {
     return (
         <div>
             <Carousel fade>
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={slider4}
+                        alt="First slide"
+                    />
+                    <Carousel.Caption>
+                        <h3>Reserve Your Bike Online and Save</h3>
+                        <p>All of our listed US tours offer remarkable opportunities towitness the country.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
