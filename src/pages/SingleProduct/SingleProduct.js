@@ -1,8 +1,12 @@
 import React from 'react';
 
-const SingleProduct = () => {
+const SingleProduct = (product) => {
+    // const { name } = product;
     return (
         <div>
+            {
+                product.map(p => <li>{p.name}</li>)
+            }
 
         </div>
     );

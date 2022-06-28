@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 import Row from 'react-bootstrap/Row';
+import useProducts from '../../hooks/useProducts';
 
 const Products = () => {
-    const [products, setProducts] = useState([])
-    useEffect(() => {
-        fetch('bicycles.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+    const [products] = useProducts()
+
     return (
         <>
             <h2>Explore Our Products</h2>
@@ -16,6 +13,7 @@ const Products = () => {
 
                 {
                     products.slice(0, 6).map(product => <Product
+                        key={product.id}
                         product={product}
                     ></Product>)
                 }

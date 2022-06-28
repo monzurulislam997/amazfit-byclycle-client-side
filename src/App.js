@@ -8,6 +8,7 @@ import RequireAuth from './pages/RequireAuth/RequireAuth';
 import Header from './pages/Shared/Header/Header';
 import SingleProduct from './pages/SingleProduct/SingleProduct';
 
+
 function App() {
   return (
     <div >
@@ -17,13 +18,14 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/product/:id" element={<SingleProduct></SingleProduct>}></Route>
 
-        <Route path="/product/:id" element={
+
+        {/* <Route path="/product/:id" element={
           <RequireAuth>
             <SingleProduct></SingleProduct>
-          </RequireAuth>
-
-        }></Route>
+          </RequireAuth>}>
+        </Route> */}
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
