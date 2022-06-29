@@ -2,8 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
-
-const Product = ({ product }) => {
+const ManageSIngleProduct = ({ product }) => {
     const { name, _id, img, description, quantity, supplier, price } = product;
     const naviagate = useNavigate()
     const handleManage = id => {
@@ -11,7 +10,6 @@ const Product = ({ product }) => {
 
 
     }
-
     return (
 
         <Col>
@@ -25,14 +23,13 @@ const Product = ({ product }) => {
                     <p>Supplier : {supplier}</p>
                     <button onClick={() => handleManage(_id)} className='  w-100  border border-none bg-dark text-light'>Manage Product</button>
                     <h5>Price: {price} $</h5>
+                    <button>Delete</button>
                 </Card.Body>
             </Card>
         </Col>
 
 
-
-
     );
 };
 
-export default Product;
+export default ManageSIngleProduct;

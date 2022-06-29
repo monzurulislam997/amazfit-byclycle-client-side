@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import avatar from '../../images/login-avatar.png';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import googleLogo from "../../images/google.png"
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 
 const Register = () => {
+    const navigate = useNavigate()
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error1, setError] = useState('');
+    const [error1, setError1] = useState('');
     const [
         createUserWithEmailAndPassword,
         user1,
@@ -37,11 +38,17 @@ const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-
+        if (password.length < 6) {
+            setError1('Password must have 6 charecter');
+            return;
+        }
         createUserWithEmailAndPassword(email, password);
         e.target.reset()
     }
-    console.log(user1)
+    if (user || user1) {
+        navigate('/home')
+    }
+
     return (
         <div className='w-50 mx-auto'>
             <div className='text-center'>
@@ -62,9 +69,9 @@ const Register = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control onBlur={handlePassword} type="password" placeholder="Password" />
                 </Form.Group>
-                <h6>{error1}</h6>
+                {<h6>{error1} {error?.message} </h6>}
                 <Button className='w-100' variant="primary" type="submit">
-                    Log In
+                    Register
                 </Button>
 
 

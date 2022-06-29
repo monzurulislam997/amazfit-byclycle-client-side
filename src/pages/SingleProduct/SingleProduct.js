@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 const SingleProduct = (product) => {
@@ -48,6 +48,18 @@ const SingleProduct = (product) => {
 
             </div>
 
+
+            <div>
+                <h3>Restock Items</h3>
+                <form >
+                    <input type="number" name="number" />
+                    <br />
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div className=' text-center my-4  '>
+                <Link className='link-btn' to="/manageinventory">Manage Inventories</Link>
+            </div>
         </div >
 
 
