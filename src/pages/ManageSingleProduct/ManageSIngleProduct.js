@@ -2,7 +2,10 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
+import useProducts from '../../hooks/useProducts';
 const ManageSIngleProduct = ({ product }) => {
+
+    const [products, setProucts] = useProducts([])
     const { name, _id, img, description, quantity, supplier, price } = product;
     const naviagate = useNavigate()
     const handleManage = id => {
@@ -10,6 +13,29 @@ const ManageSIngleProduct = ({ product }) => {
 
 
     }
+
+
+    const handleDelete = (id) => {
+        const proceed = window.confirm("Are you sure you want to delete?");
+        if (proceed) {
+            fetch(`http://localhost:5000/products/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.send())
+                .then(data => {
+                    const remaining = products.filter(product => product._id !== id);
+                    console.log(remaining)
+                    setProucts(remaining)
+
+                })
+            window.location.reload();
+        }
+    }
+
+
+
+
+
     return (
 
         <Col>
@@ -23,7 +49,7 @@ const ManageSIngleProduct = ({ product }) => {
                     <p>Supplier : {supplier}</p>
                     <button onClick={() => handleManage(_id)} className='  w-100  border border-none bg-dark text-light'>Manage Product</button>
                     <h5>Price: {price} $</h5>
-                    <button>Delete</button>
+                    <button onClick={() => handleDelete(_id)}>Delete</button>
                 </Card.Body>
             </Card>
         </Col>

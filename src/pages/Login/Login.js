@@ -81,7 +81,7 @@ const Login = () => {
                 </Button>
             </Form>
 
-            <h5>Are Youe New Here?Please,</h5> <Link to="/register">Register</Link>
+            <h5>Are Youe New Here?Please, <Link to="/register">Register</Link>  </h5>
 
             <p> login with</p>
             <div className='w-100 mx-auto ps-5 gap-4'>

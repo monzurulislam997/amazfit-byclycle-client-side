@@ -9,7 +9,7 @@ const Products = () => {
 
     return (
         <>
-            <h2>Explore Our Products</h2>
+            <h2 className='text-center'>Explore Our Products </h2>
             <Row xs={1} md={3} className="g-4">
 
                 {

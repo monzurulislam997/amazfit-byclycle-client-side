@@ -81,7 +81,7 @@ const Register = () => {
 
             </Form>
 
-            <h5>Already Registerd?Please,</h5> <Link to="/login">Log In</Link>
+            <h5>Already Registerd?Please, <Link to="/login">Log In</Link> </h5>
             <p> login with</p>
             <div className='w-100 mx-auto ps-5 d-flex gap-4'>
                 <div>
