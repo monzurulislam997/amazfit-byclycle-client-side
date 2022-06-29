@@ -12,7 +12,7 @@ const ManageProducts = () => {
 
                 {
                     products.map(product => <ManageSIngleProduct
-                        key={product.id}
+                        key={product._id}
                         product={product}
                     ></ManageSIngleProduct>)
                 }

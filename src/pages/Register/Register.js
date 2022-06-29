@@ -6,6 +6,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import googleLogo from "../../images/google.png"
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import SpinnerAdd from '../Spinner/SpinnerAdd';
 
 
 const Register = () => {
@@ -47,6 +48,9 @@ const Register = () => {
     }
     if (user || user1) {
         navigate('/home')
+    }
+    if (loading1) {
+        <h3>Loading</h3>
     }
 
     return (

@@ -8,6 +8,7 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from "../../images/google.png"
 import auth from '../../firebase.init';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import SpinnerAdd from '../Spinner/SpinnerAdd';
 const Login = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [email, setEmail] = useState('');
@@ -52,6 +53,10 @@ const Login = () => {
     if (user || user1) {
         navigate(from, { replace: true })
 
+    }
+
+    if (loading) {
+        SpinnerAdd()
     }
     return (
 
