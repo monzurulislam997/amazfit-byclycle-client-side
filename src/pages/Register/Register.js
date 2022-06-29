@@ -19,7 +19,7 @@ const Register = () => {
         createUserWithEmailAndPassword,
         user1,
         loading1,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
     const handleGoogleSignIn = () => {
