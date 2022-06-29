@@ -3,10 +3,10 @@ import { Spinner } from 'react-bootstrap';
 
 const SpinnerAdd = () => {
     return (
-        <div>
-            <Spinner animation="border" role="status">
-                <Spinner animation="border" />
-            </Spinner>
+        <div className='text-center  my-5 mx-auto'>
+
+            <Spinner className='my-5' animation="border" variant="warning" />
+
         </div>
     );
 };

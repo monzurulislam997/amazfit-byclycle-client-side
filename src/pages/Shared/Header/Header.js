@@ -22,7 +22,7 @@ const Header = () => {
                     </Link>
                     <Nav className="me-auto">
                         <Nav.Link className='text-light' as={Link} to="/home">Home</Nav.Link>
-                        <Nav.Link className='text-light' as={Link} to="/manageinventory">Manage Inventory</Nav.Link>
+                        <Nav.Link className='text-light' as={Link} to="/manageinventory">Bicycles</Nav.Link>
                         {
                             user && <Nav.Link className='text-light' as={Link} to="/addproduct">Add Product</Nav.Link>
 

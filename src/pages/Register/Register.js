@@ -49,8 +49,8 @@ const Register = () => {
     if (user || user1) {
         navigate('/home')
     }
-    if (loading1) {
-        <h3>Loading</h3>
+    if (loading1 || loading) {
+        return SpinnerAdd()
     }
 
     return (

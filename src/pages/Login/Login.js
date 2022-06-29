@@ -55,8 +55,8 @@ const Login = () => {
 
     }
 
-    if (loading) {
-        SpinnerAdd()
+    if (loading1 || loading) {
+        return SpinnerAdd()
     }
     return (
 
