@@ -4,9 +4,10 @@ import Form from 'react-bootstrap/Form';
 import avatar from '../../images/login-avatar.png';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import googleLogo from "../../images/google.png"
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SpinnerAdd from '../Spinner/SpinnerAdd';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 const Register = () => {
@@ -16,15 +17,10 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [error1, setError1] = useState('');
     const [
-        createUserWithEmailAndPassword,
-        user1,
-        loading1,
+        createUserWithEmailAndPassword
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [user, loading, error] = useAuthState(auth)
 
-    const handleGoogleSignIn = () => {
-        signInWithGoogle()
-    }
 
     const handleName = (e) => {
         setName(e.target.value)
@@ -35,23 +31,29 @@ const Register = () => {
     const handlePassword = (e) => {
         setPassword(e.target.value)
     }
-
+    if (loading) {
+        return SpinnerAdd()
+    }
 
     const handleRegister = (e) => {
         e.preventDefault();
+        if (!email || !password) {
+            return setError1("Password or Email can't be empty")
+        }
         if (password.length < 6) {
             setError1('Password must have 6 charecter');
             return;
         }
+
+
+
         createUserWithEmailAndPassword(email, password);
         e.target.reset()
     }
-    if (user || user1) {
+    if (user) {
         navigate('/home')
     }
-    if (loading1 || loading) {
-        return SpinnerAdd()
-    }
+
 
     return (
         <div className='w-50 mx-auto'>
@@ -73,7 +75,10 @@ const Register = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control onBlur={handlePassword} type="password" placeholder="Password" />
                 </Form.Group>
-                {<h6 className='text-danger'>{error1} {error?.message} </h6>}
+
+                <h6 className='text-danger'>{error1}  </h6>
+                <h6 className='text-danger'>{error?.message}</h6>
+
                 <Button className='w-100' variant="primary" type="submit">
                     Register
                 </Button>
@@ -83,13 +88,9 @@ const Register = () => {
 
             <h5>Already Registerd?Please, <Link to="/login">Log In</Link> </h5>
             <p> login with</p>
-            <div className='w-100 mx-auto ps-5 d-flex gap-4'>
-                <div>
-                    <button onClick={handleGoogleSignIn} className='rounded px-5 py-1'>
-                        <img width={30} src={googleLogo} alt="" /> Google</button>
-                </div>
 
-            </div>
+
+            <SocialLogin></SocialLogin>
 
         </div>
     );

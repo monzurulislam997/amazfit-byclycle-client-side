@@ -1,34 +1,34 @@
 
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Form from 'react-bootstrap/Form';
 import avatar from '../../images/login-avatar.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import googleLogo from "../../images/google.png"
 import auth from '../../firebase.init';
-
 import SpinnerAdd from '../Spinner/SpinnerAdd';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
+import { ToastContainer, toast } from 'react-toastify';
+
+
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
-    const [signInWithGoogle] = useSignInWithGoogle(auth);
-    const [user, loading, error] = useAuthState(auth)
+
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const location = useLocation()
     const from = location.state?.from?.pathname || "/";
-    const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+    let errorShow;
+    if (error) {
 
-    if (loading) {
-        return SpinnerAdd()
+        errorShow = <p className='text-danger'>{error?.message} </p>
     }
 
-
-    //    ------login with google------
-    const handleGoogleSignIn = () => {
-        signInWithGoogle()
-    }
 
     //------------- login with pass---------------------
     const handleEmail = (e) => {
@@ -47,6 +47,12 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
 
+
+    if (loading) {
+        return <SpinnerAdd></SpinnerAdd>
+    }
+
+
     if (user) {
         navigate(from, { replace: true })
 
@@ -54,6 +60,15 @@ const Login = () => {
 
 
 
+    //resetPassword
+    const resetPassword = async () => {
+        if (!email) {
+            alert("Please Input Email First")
+        }
+        await sendPasswordResetEmail(email);
+        toast("Reset Email Send")
+
+    }
 
 
     return (
@@ -74,22 +89,32 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control onBlur={handlePassword} type="password" placeholder="Password" />
                 </Form.Group>
-                <h6 className='text-danger'>{error?.message}</h6>
+
+                {errorShow}
                 <Button className='w-100' variant="primary" type="submit">
                     Log In
                 </Button>
             </Form>
 
-            <h5>Are Youe New Here?Please, <Link to="/register">Register</Link>  </h5>
+            <p className='d-inline me-5'>Are You New Here?Please, <Link to="/register">Register</Link>  </p>
+            <p className='d-inline ms-5 '>Forget Passowrd <Link onClick={() => resetPassword()} to="#">Rest Password </Link>  </p>
 
-            <p> login with</p>
-            <div className='w-100 mx-auto ps-5 gap-4'>
-                <div>
-                    <button onClick={handleGoogleSignIn} className='rounded px-5 py-1'>
-                        <img width={30} src={googleLogo} alt="" /> Google</button>
-                </div>
+            <p className='text-center'> login with</p>
 
-            </div>
+
+            <SocialLogin></SocialLogin>
+
+            <ToastContainer position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover />
+
+
 
         </div>
 

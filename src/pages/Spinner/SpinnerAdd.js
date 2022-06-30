@@ -3,9 +3,9 @@ import { Spinner } from 'react-bootstrap';
 
 const SpinnerAdd = () => {
     return (
-        <div className='text-center   my-5 mx-auto'>
+        <div style={{ height: "800px" }} className='text-center w-75   my-5 mx-auto'>
 
-            <Spinner className='my-5 ' animation="border" variant="warning" />
+            <Spinner className='my-5' animation="border" variant="warning" />
 
         </div>
     );

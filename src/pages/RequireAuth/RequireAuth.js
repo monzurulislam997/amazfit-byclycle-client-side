@@ -12,7 +12,7 @@ const RequireAuth = ({ children }) => {
 
 
     if (loading) {
-        return <SpinnerAdd></SpinnerAdd>
+        return SpinnerAdd()
     }
 
     if (!user) {
