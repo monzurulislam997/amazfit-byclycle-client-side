@@ -23,15 +23,16 @@ function App() {
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/addproduct" element={<AddProduct></AddProduct>}></Route>
-        <Route path="/product/:id" element={<SingleProduct></SingleProduct>}></Route>
+        {/* <Route path="/product/:id" element={<SingleProduct></SingleProduct>}></Route> */}
         <Route path="/manageproducts" element={<ManageProducts></ManageProducts>}></Route>
 
 
-        {/* <Route path="/product/:id" element={
+
+        <Route path="/product/:id" element={
           <RequireAuth>
             <SingleProduct></SingleProduct>
           </RequireAuth>}>
-        </Route> */}
+        </Route>
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

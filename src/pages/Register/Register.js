@@ -73,7 +73,7 @@ const Register = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control onBlur={handlePassword} type="password" placeholder="Password" />
                 </Form.Group>
-                {<h6>{error1} {error?.message} </h6>}
+                {<h6 className='text-danger'>{error1} {error?.message} </h6>}
                 <Button className='w-100' variant="primary" type="submit">
                     Register
                 </Button>

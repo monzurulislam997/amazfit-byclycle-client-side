@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-const SingleProduct = (product) => {
+const SingleProduct = () => {
     const [productDetails, setProductDetails] = useState({});
     const [updateNewQuantity, setUpdateNewQuantity] = useState({})
 
