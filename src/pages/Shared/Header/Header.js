@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom'
@@ -14,37 +16,60 @@ const Header = () => {
         signOut(auth)
     }
     return (
-        <nav>
-            <Navbar className='fs-6 ' bg="dark" variant="dark">
+        <nav className='sticky-top '>
+
+
+            <Navbar collapseOnSelect expand="lg" bg="dark" className="px-2" variant="dark">
                 <Container>
-                    <Link to='/home'>
-                        <img className='me-5' src={logo} alt="" />
-                    </Link>
-                    <Nav className="me-auto">
-                        <Nav.Link className='text-light' as={Link} to="/home">Home</Nav.Link>
-                        <Nav.Link className='text-light' as={Link} to="/manageproducts">Bicycles</Nav.Link>
-                        {
-                            user && <Nav.Link className='text-light' as={Link} to="/addproduct">Add Product</Nav.Link>
+                    <Navbar.Brand href="#home"><Link to='/home'>
+                        <img className='w-75' src={logo} alt="" />
+                    </Link></Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <div className='d-flex justify-content-start'>
 
-                        }
-                        {user && <Nav.Link className='text-light' as={Link} to="/myitems">My Items</Nav.Link>}
 
-                        {user && <Nav.Link className='text-light' as={Link} to="/manageitems">Manage Items</Nav.Link>}
+                        <Navbar.Collapse id="basic-navbar-nav"  >
+                            <div className='d-flex justify-content-start'>
+                                <Nav>
+                                    <Nav className="me-auto">
+                                        <Nav.Link className='text-light' as={Link} to="/home">Home</Nav.Link>
+                                        <Nav.Link className='text-light' as={Link} to="/manageproducts">Bicycles</Nav.Link>
+                                        <Nav.Link className='text-light' as={Link} to="/blogs">Blogs</Nav.Link>
 
-                    </Nav>
-                    {
-                        !user && <Nav.Link className='text-light' as={Link} to="/login">Log In </Nav.Link>
+                                        {
+                                            user && <Nav.Link className='text-light' as={Link} to="/addproduct">Add Product</Nav.Link>
 
-                    }
-                    {!user && <Nav.Link className='text-light' as={Link} to="/register">Register </Nav.Link>}
-                    {
-                        user && <Button className='text-light' onClick={logOut}  >SignOut</Button>
-                    }
+                                        }
+                                        {user && <Nav.Link className='text-light' as={Link} to="/myitems">My Items</Nav.Link>}
+
+                                        {user && <Nav.Link className='text-light' as={Link} to="/manageitems">Manage Items</Nav.Link>}
+
+
+                                        {
+                                            !user && <Nav.Link className='text-light' as={Link} to="/login">Log In </Nav.Link>
+
+                                        }
+
+                                        {!user && <Nav.Link className='text-light' as={Link} to="/register">Register </Nav.Link>}
+                                        {
+                                            user && <Button className='text-light' onClick={logOut}  >SignOut</Button>
+                                        }
+
+
+                                    </Nav>
+                                </Nav>
+
+                            </div>
+                        </Navbar.Collapse>
+                    </div>
 
                 </Container>
             </Navbar>
+
+
         </nav>
     );
 };
 
 export default Header;
+

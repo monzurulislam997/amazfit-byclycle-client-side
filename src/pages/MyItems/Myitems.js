@@ -1,22 +1,22 @@
 import React from 'react';
-import Product from '../Product/Product';
-import Row from 'react-bootstrap/Row';
-import useProducts from '../../hooks/useProducts';
+import { Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './Products.css'
-const Products = () => {
+import useProducts from '../../hooks/useProducts';
+import Myitem from '../Myitem/Myitem';
+
+const Myitems = () => {
     const [products] = useProducts()
 
     return (
         <>
-            <h2 className='text-center'>Explore Our Products </h2>
+            <h2 className='text-center'>My Items </h2>
             <Row xs={1} md={3} className="mx-2">
 
                 {
-                    products.slice(0, 6).map(product => <Product
+                    products.slice(0, 6).map(product => <Myitem
                         key={product._id}
                         product={product}
-                    ></Product>)
+                    ></Myitem>)
                 }
             </Row>
             <div className=' text-center my-4  '>
@@ -26,4 +26,5 @@ const Products = () => {
     );
 };
 
-export default Products;
+
+export default Myitems;

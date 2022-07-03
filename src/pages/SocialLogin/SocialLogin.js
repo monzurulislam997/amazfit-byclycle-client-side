@@ -21,10 +21,10 @@ const SocialLogin = () => {
     }
 
     return (
-        <div className='w-100 mx-auto ps-5 gap-4'>
+        <div className='w-100 mx-auto  gap-4'>
             <div>
                 <h6 className='text-danger'>{error?.message}  </h6>
-                <button onClick={() => { signInWithGoogle() }} className='rounded px-5 py-1'>
+                <button onClick={() => { signInWithGoogle() }} className='rounded w-100 bg-primary text-light font-weight-bold  py-1'>
                     <img width={30} src={googleLogo} alt="" /> Google</button>
             </div>
 

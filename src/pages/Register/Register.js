@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import avatar from '../../images/login-avatar.png';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import googleLogo from "../../images/google.png"
-import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SpinnerAdd from '../Spinner/SpinnerAdd';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import bg from '../../images/add2.jpg'
 
 
 const Register = () => {
@@ -56,42 +56,44 @@ const Register = () => {
 
 
     return (
-        <div className='w-50 mx-auto'>
-            <div className='text-center'>
-                <img style={{ borderRadius: "50%", width: "100px", height: "100px" }} src={avatar} alt="" />
-                <h2 >Please,Register</h2>
+        <div style={{ backgroundImage: `url(${bg})`, height: "100vh" }}>
+            <div className='w-50 mx-auto'>
+                <div className='text-center'>
+                    <img style={{ borderRadius: "50%", width: "80px", height: "80px" }} src={avatar} alt="" />
+                    <h2 className='text-light mt-1' >Please,Register</h2>
+                </div>
+                <Form onSubmit={handleRegister}>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+
+                        <Form.Control onBlur={handleName} type="text" placeholder="Enter Name" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+
+                        <Form.Control onBlur={handleEmail} type="email" placeholder="Enter email" />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+
+                        <Form.Control onBlur={handlePassword} type="password" placeholder="Password" />
+                    </Form.Group>
+
+                    <h6 className='text-danger'>{error1}  </h6>
+                    <h6 className='text-danger'>{error?.message}</h6>
+
+                    <Button className='w-100' variant="primary" type="submit">
+                        Register
+                    </Button>
+
+
+                </Form>
+
+                <h5 className='text-light mt-2'>Already Registerd?Please, <Link className='text-warning' to="/login">Log In</Link> </h5 >
+                <h5 className='text-light text-center my-4'> Or</h5>
+
+
+                <SocialLogin></SocialLogin>
+
             </div>
-            <Form onSubmit={handleRegister}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Your Name</Form.Label>
-                    <Form.Control onBlur={handleName} type="text" placeholder="Enter Name" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control onBlur={handleEmail} type="email" placeholder="Enter email" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control onBlur={handlePassword} type="password" placeholder="Password" />
-                </Form.Group>
-
-                <h6 className='text-danger'>{error1}  </h6>
-                <h6 className='text-danger'>{error?.message}</h6>
-
-                <Button className='w-100' variant="primary" type="submit">
-                    Register
-                </Button>
-
-
-            </Form>
-
-            <h5>Already Registerd?Please, <Link to="/login">Log In</Link> </h5>
-            <p> login with</p>
-
-
-            <SocialLogin></SocialLogin>
-
         </div>
     );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+
 const SingleProduct = () => {
     const [productDetails, setProductDetails] = useState({});
     const [updateNewQuantity, setUpdateNewQuantity] = useState({})
@@ -25,7 +26,7 @@ const SingleProduct = () => {
         setUpdateNewQuantity(updateQuantity)
 
         const url = `http://localhost:5000/products/${id}`
-        console.log(url)
+
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -38,7 +39,40 @@ const SingleProduct = () => {
                 console.log('success', data);
                 alert("Updated")
             })
+
     }
+
+    const restockItem = (event) => {
+        event.preventDefault()
+        let number = event.target.number.value;
+
+        if (number < 1) {
+
+            return alert("Please,Input Positive Number");
+
+        }
+
+        const newQuantity = Number(quantity) + parseInt(number);
+        const updateQuantity = { newQuantity }
+        setUpdateNewQuantity(updateQuantity)
+
+        const url = `http://localhost:5000/products/${id}`
+
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateQuantity)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                event.target.number.value = " "
+                alert("Reaload the page to see the updated result if internet slow😂 ")
+            })
+    }
+
 
     return (
         <div className='w-75 mx-auto' >
@@ -70,17 +104,18 @@ const SingleProduct = () => {
 
             </div>
 
-            <div>
-                <h3>Restock Items</h3>
-                <form >
-                    <input type="number" name="number" />
+            <div className='my-5 border border-info px-5 py-3 w-50 mx-auto'>
+                <h3 className='text-center'>Restock Items</h3>
+                <form className='px-5' onSubmit={restockItem} >
+                    <input type="number" min="0" name="number" placeholder='Input Number' />
                     <br />
-                    <button>Submit</button>
+                    <button className='border boder-none bg-info text-light mt-1 px-3'>Submit</button>
                 </form>
             </div>
             <div className=' text-center my-4  '>
-                <Link className='link-btn' to="/manageinventory">Manage Inventories</Link>
+                <Link className='link-btn' to="/manageproducts">Manage Products</Link>
             </div>
+
         </div >
 
 

@@ -33,23 +33,20 @@ const ManageSIngleProduct = ({ product }) => {
     }
 
 
-
-
-
     return (
 
         <Col>
             <Card>
 
-                <Card.Img variant="top" width="350px" height="250px" src={img} />
+                <Card.Img variant="top" width="300px" height="220px" src={img} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
-                    <p>{description}</p>
+                    <p>{description.slice(0, 140)}</p>
                     <h6>Quantity: {quantity}</h6>
                     <p>Supplier : {supplier}</p>
                     <button onClick={() => handleManage(_id)} className='  w-100  border border-none bg-dark text-light'>Manage Product</button>
                     <h5>Price: {price} $</h5>
-                    <button onClick={() => handleDelete(_id)}>Delete</button>
+                    <button className='border border-none bg-primary text-light rounded px-5' onClick={() => handleDelete(_id)}>Delete</button>
                 </Card.Body>
             </Card>
         </Col>

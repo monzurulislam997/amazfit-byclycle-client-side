@@ -6,8 +6,12 @@ import { Link } from 'react-router-dom';
 const ManageProducts = () => {
     const [products] = useProducts()
     return (
-        <div className='px-5 py-3'>
-            <h2 className='text-center  mb-4 d-inline my-3'>Explore Our Products </h2>  <h4 className='d-inline me-2'> Total result: {products.length}</h4>
+        <div className=' p-2 mx-4 '>
+            <h2 className='text-center w-50 mx-auto  border-bottom border-5 border-info my-3 text-danger'>Explore Our <span className='text-success'> Products </span></h2>
+            <div className='d-flex  justify-content-end  align-items-center'>
+                <span className='d-inline  fw-5 text-success '> Total Products: {products.length}</span>
+            </div>
+
             <Row xs={1} md={3} className="g-4">
 
                 {
