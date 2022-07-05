@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom'
@@ -21,47 +19,49 @@ const Header = () => {
 
             <Navbar collapseOnSelect expand="lg" bg="dark" className="px-2" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home"><Link to='/home'>
-                        <img className='w-75' src={logo} alt="" />
-                    </Link></Navbar.Brand>
+                    <Navbar.Brand href="#home">
+                        <Link to='/home'>
+                            <img className='w-75' src={logo} alt="" />
+                        </Link>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <div className='d-flex justify-content-start'>
 
 
-                        <Navbar.Collapse id="basic-navbar-nav"  >
-                            <div className='d-flex justify-content-start'>
-                                <Nav>
-                                    <Nav className="me-auto">
-                                        <Nav.Link className='text-light' as={Link} to="/home">Home</Nav.Link>
-                                        <Nav.Link className='text-light' as={Link} to="/manageproducts">Bicycles</Nav.Link>
-                                        <Nav.Link className='text-light' as={Link} to="/blogs">Blogs</Nav.Link>
 
-                                        {
-                                            user && <Nav.Link className='text-light' as={Link} to="/addproduct">Add Product</Nav.Link>
+                    <Navbar.Collapse id="basic-navbar-nav"  >
 
-                                        }
-                                        {user && <Nav.Link className='text-light' as={Link} to="/myitems">My Items</Nav.Link>}
+                        <Nav>
+                            <Nav className="me-auto">
+                                <Nav.Link className='text-light' as={Link} to="/home">Home</Nav.Link>
+                                <Nav.Link className='text-light' as={Link} to="/bicycles">Bicycles</Nav.Link>
+                                <Nav.Link className='text-light' as={Link} to="/blogs">Blogs</Nav.Link>
 
-                                        {user && <Nav.Link className='text-light' as={Link} to="/manageitems">Manage Items</Nav.Link>}
+                                {
+                                    user && <Nav.Link className='text-light' as={Link} to="/addproduct">Add Product</Nav.Link>
 
+                                }
+                                {user && <Nav.Link className='text-light' as={Link} to="/myitems">My Items</Nav.Link>}
 
-                                        {
-                                            !user && <Nav.Link className='text-light' as={Link} to="/login">Log In </Nav.Link>
-
-                                        }
-
-                                        {!user && <Nav.Link className='text-light' as={Link} to="/register">Register </Nav.Link>}
-                                        {
-                                            user && <Button className='text-light' onClick={logOut}  >SignOut</Button>
-                                        }
+                                {user && <Nav.Link className='text-light' as={Link} to="/manageitems">Manage Items</Nav.Link>}
 
 
-                                    </Nav>
-                                </Nav>
+                                {
+                                    !user && <Nav.Link className='text-light' as={Link} to="/login">Log In </Nav.Link>
 
-                            </div>
-                        </Navbar.Collapse>
-                    </div>
+                                }
+
+                                {!user && <Nav.Link className='text-light' as={Link} to="/register">Register </Nav.Link>}
+                                {
+                                    user && <Button className='text-light' onClick={logOut}  >SignOut</Button>
+                                }
+
+
+                            </Nav>
+                        </Nav>
+
+
+                    </Navbar.Collapse>
+
 
                 </Container>
             </Navbar>
@@ -72,4 +72,3 @@ const Header = () => {
 };
 
 export default Header;
-

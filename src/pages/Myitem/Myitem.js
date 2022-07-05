@@ -6,33 +6,12 @@ import { Card } from 'react-bootstrap';
 const Myitems = ({ product }) => {
     const { _id, name, img, supplier, price } = product;
 
-
     const handleAdd = () => {
         const orderInfo = {
             id: _id,
             name: name,
             supplier: supplier,
         }
-
-        //     const url = "http://localhost:5000/orders";
-        //     fetch("http://localhost:5000/order", {
-        //         method: "POST",
-        //         headers: {
-        //             'content-type': 'application/json'
-        //         },
-        //         body: JSON.stringify(orderInfo)
-        //     })
-        //         .then(res => res.json())
-        //         .then(result => {
-        //             console.log(result)
-        //         })
-
-
-        //     alert("Product has been added")
-        // }
-
-
-
 
         axios.post("http://localhost:5000/order", orderInfo)
             .then(res => {
@@ -44,32 +23,8 @@ const Myitems = ({ product }) => {
                 }
 
             });
-
-
-
     }
 
-
-
-
-
-
-    // const handleDelete = (id) => {
-    //     const proceed = window.confirm("Are you sure you want to delete?");
-    //     if (proceed) {
-    //         fetch(`http://localhost:5000/products/${id}`, {
-    //             method: 'DELETE'
-    //         })
-    //             .then(res => res.send())
-    //             .then(data => {
-    //                 const remaining = products.filter(product => product._id !== id);
-    //                 console.log(remaining)
-    //                 setProucts(remaining)
-
-    //             })
-    //         window.location.reload();
-    //     }
-    // }
 
 
     return (
@@ -86,9 +41,7 @@ const Myitems = ({ product }) => {
                 <div className='mt-5 mx-2'>
                     <button onClick={() => handleAdd()} className='border border-none text-light bg-primary'>Add</button>
                 </div>
-                {/* <div className='mt-5 mx-2'>
-                    <button onClick={() => handleDelete(_id)} className='border border-none text-light bg-primary'>Delete</button>
-                </div> */}
+
 
             </div>
         </Card>

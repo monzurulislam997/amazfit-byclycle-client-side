@@ -3,7 +3,7 @@ import './Footer.css'
 import logo from '../../../images/logo.png'
 const Footer = () => {
     return (
-        <div className="footer-dark bg-dark">
+        <div className="footer-dark p-5 bg-dark">
             <footer>
                 <div class="container">
                     <div class="row">

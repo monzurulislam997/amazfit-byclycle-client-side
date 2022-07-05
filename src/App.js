@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Add2 from './pages/Add2/Add2';
 import AddMyItem from './pages/AddMyItem/AddMyItem';
 import AddProduct from './pages/AddProduct/AddProduct';
 import Blogs from './pages/Blogs/Blogs';
@@ -30,9 +29,8 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/manageitems" element={<MyitemStore></MyitemStore>}></Route>
         <Route path="/addproduct" element={<AddProduct></AddProduct>}></Route>
-        <Route path="/manageproducts" element={<ManageProducts></ManageProducts>}></Route>
+        <Route path="/bicycles" element={<ManageProducts></ManageProducts>}></Route>
         <Route path="/add/:id" element={<AddMyItem></AddMyItem>}></Route>
-        {/* <Route path="/showitem" element={<ShowItem></ShowItem>}></Route> */}
         <Route path="/myitems" element={<ShowMyItemStore></ShowMyItemStore>}></Route>
 
         <Route path="/product/:id" element={

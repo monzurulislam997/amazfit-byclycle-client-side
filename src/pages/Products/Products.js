@@ -20,7 +20,7 @@ const Products = () => {
                 }
             </Row>
             <div className=' text-center my-4  '>
-                <Link className='link-btn' to="/manageproducts">Manage Inventories</Link>
+                <Link className='link-btn' to="/manageitems">Manage Inventories</Link>
             </div>
         </>
     );

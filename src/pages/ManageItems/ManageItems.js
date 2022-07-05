@@ -16,25 +16,6 @@ const ManageItems = ({ product }) => {
             supplier: supplier,
         }
 
-        //     const url = "http://localhost:5000/orders";
-        //     fetch("http://localhost:5000/order", {
-        //         method: "POST",
-        //         headers: {
-        //             'content-type': 'application/json'
-        //         },
-        //         body: JSON.stringify(orderInfo)
-        //     })
-        //         .then(res => res.json())
-        //         .then(result => {
-        //             console.log(result)
-        //         })
-
-
-        //     alert("Product has been added")
-        // }
-
-
-
 
         axios.post("http://localhost:5000/order", orderInfo)
             .then(res => {
@@ -47,50 +28,25 @@ const ManageItems = ({ product }) => {
 
             });
 
-
-
     }
 
 
 
-
-
-
-    // const handleDelete = (id) => {
-    //     const proceed = window.confirm("Are you sure you want to delete?");
-    //     if (proceed) {
-    //         fetch(`http://localhost:5000/products/${id}`, {
-    //             method: 'DELETE'
-    //         })
-    //             .then(res => res.send())
-    //             .then(data => {
-    //                 const remaining = products.filter(product => product._id !== id);
-    //                 console.log(remaining)
-    //                 setProucts(remaining)
-
-    //             })
-    //         window.location.reload();
-    //     }
-    // }
-
-
     return (
 
-        <Card className='my-3' border="secondary" style={{ width: '29rem' }}>
-            <div className='d-flex  '>
-                <img src={img} width="150px" height="150px" alt="" />
+        <Card className='w-100 my-3' border="secondary" >
+            <div className='d-lg-flex   '>
+                <img src={img} width="180px" height="150px" alt="" />
 
-                <div className='mt-4 mx-5'>
+                <div className='w-50 mt-4 ms-4'>
                     <h5>{name}   </h5>
                     <p>price: {price}</p>
                     <p>Supplier:{supplier}</p>
                 </div>
                 <div className='mt-5 mx-2'>
-                    <button onClick={() => handleAdd()} className='border border-none text-light bg-primary'>Add</button>
+                    <button onClick={() => handleAdd()} className='border my-2 px-4  py-1 rounded  border-none text-light bg-success'>Add Item</button>
                 </div>
-                {/* <div className='mt-5 mx-2'>
-                    <button onClick={() => handleDelete(_id)} className='border border-none text-light bg-primary'>Delete</button>
-                </div> */}
+
 
             </div>
         </Card>

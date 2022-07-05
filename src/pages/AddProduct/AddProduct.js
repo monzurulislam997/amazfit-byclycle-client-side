@@ -43,7 +43,7 @@ const AddProduct = () => {
                     <input className='rounded py-2 mt-2' placeholder='Add Quantity' type="number" {...register("quantity",)} />
 
                     <input className='rounded py-2 mt-2' placeholder='photo URL' type="text" {...register("img",)} />
-                    <input className='rounded py-2 mt-3 text-light fw-5 fs-5 bg-danger' type="submit" />
+                    <input className='rounded py-2 mt-3 text-light fw-5 fs-5 bg-success' type="submit" />
                 </form>
 
             </div>

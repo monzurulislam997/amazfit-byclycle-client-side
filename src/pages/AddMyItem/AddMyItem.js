@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Add2 from '../Add2/Add2';
+
 
 const AddMyItem = () => {
 
@@ -16,11 +16,6 @@ const AddMyItem = () => {
             .then(res => res.json())
             .then(data => setProductDetails(data))
     }, [])
-
-    // const { _id, name, img, description, price, quantity, supplier } = allProduct;
-
-
-
 
 
     return (

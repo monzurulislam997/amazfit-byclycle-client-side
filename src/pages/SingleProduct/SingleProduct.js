@@ -75,29 +75,26 @@ const SingleProduct = () => {
 
 
     return (
-        <div className='w-75 mx-auto' >
+        <div className='w-75 mx-auto px-2' >
             <h2 className='text-center'>Product Details</h2>
 
-            <div className='d-flex border w-75 mx-auto  p-2' >
+            <div className='d-lg-flex  border w-75 mx-auto mt-3 p-2' >
 
-                <div className="ms-5 mt-1 " style={{ width: '18rem' }}>
+                <div className="ms-5 mt-2 ">
                     <Card.Img variant="top" width="220px" height="150px" src={img} />
-                    <h5>ID: {_id}</h5>
+                    <h6>ID: {_id}</h6>
 
                     <ListGroup className="list-group-flush">
                         <h4>Price: {price} $</h4>
-
                         <p>Suppliear : {supplier}</p>
-
                         <button onClick={updateInfo} className='bg-dark text-light'>Deliverd</button>
                     </ListGroup>
                 </div>
 
-                <div className='mt-2 mx-4' style={{ width: '18rem' }}>
+                <div className='my-4 mx-4' >
                     <Card.Title>Product Name: {name}</Card.Title>
-                    <h4>Quantity: {quantity}  </h4>
+                    <h4 className='text-success'>Quantity: {quantity}  </h4>
                     <Card.Text>
-
                         <h6>Description</h6> {description}
                     </Card.Text>
                 </div>
@@ -106,18 +103,20 @@ const SingleProduct = () => {
 
             {/* ---Restock item section---- */}
 
-            <div className='my-5 border border-info px-5 py-3 w-50 mx-auto'>
-                <h3 className='text-center'>Restock Items</h3>
-                <form className='px-5' onSubmit={restockItem} >
-                    <div className='px-5'>
-                        <input type="number" min="0" name="number" placeholder='Input Number' />
-                        <br />
-                        <button className='border boder-none bg-info ms-5 text-light mt-1 px-3'>Submit</button>
-                    </div>
+            <div className=' w-75 my-5  mx-auto'>
+
+
+                <h3 className='mx-5'>Restock Items</h3>
+                <form className='' onSubmit={restockItem} >
+                    <input type="number" className='w-50 mx-5 ' min="0" name="number" placeholder='Input Number' />
+                    <br />
+                    <button className='border  mx-5 boder-none bg-success py-1 rounded  text-light mt-1 px-4'>Submit</button>
                 </form>
             </div>
+
+
             <div className=' text-center my-4  '>
-                <Link className='link-btn' to="/manageproducts">Manage Products</Link>
+                <Link className='link-btn' to="/manageitems ">Manage Products</Link>
             </div>
 
         </div >

@@ -14,8 +14,8 @@ const ShowMyItemStore = () => {
 
 
     return (
-        <div>
-
+        <div className=''>
+            <h2 className='text-center text-success mt-2'>My Ordered Items</h2>
 
             {
                 orders.map(order => <ShowItem

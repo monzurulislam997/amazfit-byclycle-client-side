@@ -56,6 +56,14 @@
         "supplier": "Shaih Shah"
     },
     {
+        "name": "The Humit Bike!",
+        "img": "https://i.ibb.co/TY2VwCC/2.jpg",
+        "description": "King’s College London compared over 400 identical twins and found those who did the equivalent of just three 45-minute rides a week were nine years ‘biologically younger’ even after discounting othe",
+        "quantity": 25,
+        "price": 229,
+        "supplier": "Amrit Saleh"
+    },
+    {
         "name": "3-speed internal red frame",
         "img": "https://i.ibb.co/M7mLH5p/6.jpg",
         "description": "On this 2-hour tour you'll see the sights of Midtown Manhattan in a fascinating display of pulsating lights. Listen as our guide regales you with fascinating and often amusing stories about this histo",
@@ -76,6 +84,14 @@
         "quantity": 96,
         "price": 89,
         "supplier": "Abir Choudhury"
+    },
+    {
+        "name": "Kids Bike2",
+        "img": "https://i.ibb.co/kc1nD7m/mountain-bike1jpg.jpg",
+        "description": "Travel across the nearly 6,000 foot span of the majestic Brooklyn Bridge. Explore Brooklyn's unique cultural and exceptional architectural legacy as well as its historical background.",
+        "quantity": 5,
+        "price": 79,
+        "supplier": "Johon doe"
     },
     {
         "name": "Linku minku bike",

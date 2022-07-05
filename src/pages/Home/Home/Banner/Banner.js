@@ -5,7 +5,7 @@ import slider2 from "../../../../images/background-03-1920x800.jpg"
 import slider3 from "../../../../images/background-04-1920x800.jpg"
 const Banner = () => {
     return (
-        <div>
+        <div >
             <Carousel fade>
 
                 <Carousel.Item>
@@ -16,7 +16,7 @@ const Banner = () => {
                     />
                     <Carousel.Caption>
                         <h3>Reserve Your Bike Online and Save</h3>
-                        <p>All of our listed US tours offer remarkable opportunities towitness the country.</p>
+                        <p>All of our listed US tours offer remarkable opportunities .</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -27,8 +27,8 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Traveling by bicycle is an excellent way for families</h3>
-                        <p>Bicycle tours help give kids a feel for a country, its terrain and its people more so than most other means.</p>
+                        <h3 >Traveling by bicycle is an excellent way</h3>
+                        <p>Bicycle tours help give kids a feel for a country, its terrain and its people more like.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
