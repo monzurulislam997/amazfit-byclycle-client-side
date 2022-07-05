@@ -104,12 +104,16 @@ const SingleProduct = () => {
 
             </div>
 
+            {/* ---Restock item section---- */}
+
             <div className='my-5 border border-info px-5 py-3 w-50 mx-auto'>
                 <h3 className='text-center'>Restock Items</h3>
                 <form className='px-5' onSubmit={restockItem} >
-                    <input type="number" min="0" name="number" placeholder='Input Number' />
-                    <br />
-                    <button className='border boder-none bg-info text-light mt-1 px-3'>Submit</button>
+                    <div className='px-5'>
+                        <input type="number" min="0" name="number" placeholder='Input Number' />
+                        <br />
+                        <button className='border boder-none bg-info ms-5 text-light mt-1 px-3'>Submit</button>
+                    </div>
                 </form>
             </div>
             <div className=' text-center my-4  '>

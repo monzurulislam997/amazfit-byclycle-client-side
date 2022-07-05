@@ -10,8 +10,6 @@ const ManageSIngleProduct = ({ product }) => {
     const naviagate = useNavigate()
     const handleManage = id => {
         naviagate(`/product/${id}`)
-
-
     }
 
 

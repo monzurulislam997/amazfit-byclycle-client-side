@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div>
+        <div className='container mt-2 px-5'>
             <h3>Difference between javascript and nodejs</h3>
             <p> 1. JavaScript is a language that runs inside web browsers  and is used as a client-side development language. On the Otherhand, Node js is a Javascript runtime environment, which is depended on Google’s V8 JavaScript environment.</p>
             <p>2. Javascript can be used server side and client side.But NodeJs is an open source, cross-platform environment that allows only to create server-side applications  using JavaScript.</p>

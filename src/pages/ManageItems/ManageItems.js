@@ -3,7 +3,7 @@ import axios from 'axios';
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
-const Myitems = ({ product }) => {
+const ManageItems = ({ product }) => {
     const { _id, name, img, supplier, price } = product;
 
 
@@ -11,6 +11,8 @@ const Myitems = ({ product }) => {
         const orderInfo = {
             id: _id,
             name: name,
+            price: price,
+            img: img,
             supplier: supplier,
         }
 
@@ -98,4 +100,4 @@ const Myitems = ({ product }) => {
 }
 
 
-export default Myitems;
+export default ManageItems;
