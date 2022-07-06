@@ -40,9 +40,10 @@ const Header = () => {
                                     user && <Nav.Link className='text-light' as={Link} to="/addproduct">Add Product</Nav.Link>
 
                                 }
-                                {user && <Nav.Link className='text-light' as={Link} to="/myitems">My Items</Nav.Link>}
+
 
                                 {user && <Nav.Link className='text-light' as={Link} to="/manageitems">Manage Items</Nav.Link>}
+                                {user && <Nav.Link className='text-light' as={Link} to="/myitems">My Items</Nav.Link>}
 
 
                                 {

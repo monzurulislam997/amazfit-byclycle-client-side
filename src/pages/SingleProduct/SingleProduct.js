@@ -116,7 +116,7 @@ const SingleProduct = () => {
 
 
             <div className=' text-center my-4  '>
-                <Link className='link-btn' to="/manageitems ">Manage Products</Link>
+                <Link className='link-btn' to="/manageitems ">Manage Inventories</Link>
             </div>
 
         </div >
