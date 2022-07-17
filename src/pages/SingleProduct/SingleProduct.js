@@ -9,7 +9,7 @@ const SingleProduct = () => {
 
     const { id } = useParams()
     useEffect(() => {
-        const url = `http://localhost:5000/products/${id}`;
+        const url = `https://peaceful-shelf-82163.herokuapp.com/products/${id}`;
 
         fetch(url)
             .then(res => res.json())
@@ -25,7 +25,7 @@ const SingleProduct = () => {
         const updateQuantity = { newQuantity }
         setUpdateNewQuantity(updateQuantity)
 
-        const url = `http://localhost:5000/products/${id}`
+        const url = `https://peaceful-shelf-82163.herokuapp.com/products/${id}`
 
         fetch(url, {
             method: 'PUT',
@@ -56,7 +56,7 @@ const SingleProduct = () => {
         const updateQuantity = { newQuantity }
         setUpdateNewQuantity(updateQuantity)
 
-        const url = `http://localhost:5000/products/${id}`
+        const url = `https://peaceful-shelf-82163.herokuapp.com/products/${id}`
 
         fetch(url, {
             method: 'PUT',

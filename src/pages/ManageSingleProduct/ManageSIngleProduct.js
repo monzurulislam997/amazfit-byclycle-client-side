@@ -16,7 +16,7 @@ const ManageSIngleProduct = ({ product }) => {
     const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure you want to delete?");
         if (proceed) {
-            fetch(`http://localhost:5000/products/${id}`, {
+            fetch(`https://peaceful-shelf-82163.herokuapp.com/products/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.send())

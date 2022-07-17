@@ -8,7 +8,7 @@ const AddProduct = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, event) => {
 
-        const url = `http://localhost:5000/products`;
+        const url = `https://peaceful-shelf-82163.herokuapp.com/products`;
         fetch(url, {
             method: "POST",
             headers: {

@@ -13,7 +13,7 @@ const Myitems = ({ product }) => {
             supplier: supplier,
         }
 
-        axios.post("http://localhost:5000/order", orderInfo)
+        axios.post("https://peaceful-shelf-82163.herokuapp.com/order", orderInfo)
             .then(res => {
                 if (res.status === 200) {
                     alert("Product has been added")

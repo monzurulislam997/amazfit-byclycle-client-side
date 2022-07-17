@@ -11,7 +11,7 @@ const AddMyItem = () => {
 
     const { id } = useParams()
     useEffect(() => {
-        const url = `http://localhost:5000/products/${id}`;
+        const url = `https://peaceful-shelf-82163.herokuapp.com/products/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProductDetails(data))
